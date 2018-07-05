@@ -4,12 +4,10 @@ public class InventorAchievementObserver implements AchievementObserver {
     private static final String CREATION = "CREATION";
 
     @Override
-    public void achievementUpdate(String user, Achievement a){
+    public void achievementUpdate(String user, Achievement a) {
 	AchievementStorage storage = AchievementStorageFactory.getAchievementStorage();
 	if (isAPoint(a) && isCreation(a) && isSuperior100(a)) {
-	    if (!storage.getAchievements(user).contains(Badge.INVENTOR)) {
-		storage.addAchievement(user, Badge.INVENTOR);
-	    }
+	    storage.addAchievement(user, Badge.INVENTOR);
 	}
     }
 
